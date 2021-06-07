@@ -74,3 +74,5 @@ with open(resource_path('new_make_core.conf'), 'w+') as make:
 sg.Popup('Aplicado com sucesso')
 
 window.close()
+
+####### DEV M1R41 N1KK1
