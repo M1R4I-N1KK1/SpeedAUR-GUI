@@ -57,5 +57,3 @@ while True:
         break
 
 window.close()
-
-## MIRAI NIKKI
