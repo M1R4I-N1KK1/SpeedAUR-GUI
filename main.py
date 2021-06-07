@@ -24,7 +24,8 @@ layout = [
     [sg.Radio('Axel', "RADIO1", key='axel', default=False)],
     [],
     [sg.Text('CORE NUMBER')],
-    [sg.Input('core number to build', key='core'), sg.Text('automatic'), sg.Checkbox('', key='auto')],
+    [sg.Input('', key='core'),
+     sg.Text('AUTO'), sg.Checkbox('', default=True, key='auto')],
     [sg.Button('append'), sg.Button('exit')],
     [sg.Text('')],
     [sg.Text('by M1R41 N1KK1', justification='right', size=(60, 1))]
@@ -33,27 +34,43 @@ layout = [
 window = sg.Window('Speed AUR', layout)
 
 new_make = ''
+core = ''
+manager_select = ''
 
 while True:
     events, values = window.read()
 
     if events == 'append':
         if values["curl"]:
-            new_make = base_make.replace('MANAGER', str(manager['curl']))
+            manager_select = 'curl'
         elif values["aria2"]:
-            new_make = base_make.replace('MANAGER', str(manager['aria2']))
+            manager_select = 'aria2'
         elif values["axel"]:
-            new_make = base_make.replace('MANAGER', str(manager['axel']))
-    try:
-        if int(values["core"]):
-            print('Core2')
-    except ValueError:
-        print('automatico')
+            manager_select = 'axel'
 
-        with open(resource_path('new_make_core.conf'), 'w+') as make:
-            make.write(new_make)
+    if values["auto"]:
+        core = '$(($(nproc)+1)'
+        sg.Popup("AUTO SELECT")
+        break
+
+    else:
+        try:
+            if int(values["core"]):
+                core = int(values["core"])
+                break
+
+        except ValueError:
+            sg.Popup("Digite o numero de core do processador",
+                     "ou marque a caixinha \"AUTO\"")
 
     if events == sg.WIN_CLOSED or events == "exit":
         break
+
+new_make = base_make.replace('MANAGER', str(manager[manager_select][0])).replace('CORE', str(core + 1))
+
+with open(resource_path('new_make_core.conf'), 'w+') as make:
+    make.write(new_make)
+
+sg.Popup('Aplicado com sucesso')
 
 window.close()
