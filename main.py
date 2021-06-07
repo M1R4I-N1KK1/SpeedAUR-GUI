@@ -40,6 +40,10 @@ manager_select = ''
 while True:
     events, values = window.read()
 
+    if events == sg.WIN_CLOSED or events == "exit":
+        exit()
+        break
+
     if events == 'append':
         if values["curl"]:
             manager_select = 'curl'
@@ -62,8 +66,6 @@ while True:
             sg.Popup("Digite o numero de core do processador",
                      "ou marque a caixinha \"AUTO\"")
 
-    if events == sg.WIN_CLOSED or events == "exit":
-        break
 
 new_make = base_make.replace('MANAGER', str(manager[manager_select][0])).replace('CORE', core)
 
