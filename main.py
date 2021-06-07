@@ -50,13 +50,12 @@ while True:
 
     if values["auto"]:
         core = '$(($(nproc)+1)'
-        sg.Popup("AUTO SELECT")
         break
 
     else:
         try:
             if int(values["core"]):
-                core = int(values["core"])
+                core = str(int(values["core"]) + 1)
                 break
 
         except ValueError:
@@ -66,7 +65,7 @@ while True:
     if events == sg.WIN_CLOSED or events == "exit":
         break
 
-new_make = base_make.replace('MANAGER', str(manager[manager_select][0])).replace('CORE', str(core + 1))
+new_make = base_make.replace('MANAGER', str(manager[manager_select][0])).replace('CORE', core)
 
 with open(resource_path('new_make_core.conf'), 'w+') as make:
     make.write(new_make)
