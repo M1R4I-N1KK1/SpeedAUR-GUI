@@ -13,15 +13,14 @@ with open(resource_path('manager.json')) as download_manager:
 with open(resource_path('base.conf'), 'r') as base:
     base_make = base.read()
 
-
 sg.theme("reddit")
 
 layout = [
     [sg.Image('speedaur-head.png')],
     [sg.Text('DOWNLOAD MANAGER')],
-    [sg.Radio('Curl (Default)', "RADIO1", key='curl', default=True)],
-    [sg.Radio('Aria2', "RADIO1", key='aria2', default=False)],
-    [sg.Radio('Axel', "RADIO1", key='axel', default=False)],
+    [sg.Radio('Curl (Default)', "RADIO1", default=True)],
+    [sg.Radio('Aria2', "RADIO1", default=False)],
+    [sg.Radio('Axel', "RADIO1", default=False)],
     [],
     [sg.Text('CORE NUMBER')],
     [sg.Input('', key='core'),
@@ -44,13 +43,13 @@ while True:
         exit()
         break
 
+# Vericando o a opçao do gerenciador de download
+
     if events == 'append':
-        if values["curl"]:
-            manager_select = 'curl'
-        elif values["aria2"]:
-            manager_select = 'aria2'
-        elif values["axel"]:
-            manager_select = 'axel'
+        for x in range(1, 4):
+            if str(values[x]) in 'True':
+                manager_select = str(x)
+                break
 
     if values["auto"]:
         core = '$(($(nproc)+1)'
@@ -66,6 +65,7 @@ while True:
             sg.Popup("Digite o numero de core do processador",
                      "ou marque a caixinha \"AUTO\"")
 
+# escrevendo as modifições em um arquivo temporario
 
 new_make = base_make.replace('MANAGER', str(manager[manager_select][0])).replace('CORE', core)
 
