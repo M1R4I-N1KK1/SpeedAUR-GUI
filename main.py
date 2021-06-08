@@ -1,4 +1,5 @@
 import json
+import webbrowser
 from os import path
 from PySimpleGUI import PySimpleGUI as sg
 
@@ -21,49 +22,58 @@ layout = [
     [sg.Radio('Curl (Default)', "RADIO1", default=True)],
     [sg.Radio('Aria2', "RADIO1", default=False)],
     [sg.Radio('Axel', "RADIO1", default=False)],
-    [],
+    [sg.Text('PROCESSOR ARCHITECTURE')],
+    [sg.Input('', key='arch'), sg.Text('AUTO'),
+     sg.Checkbox('', default=True, key='processor')],
     [sg.Text('CORE NUMBER')],
     [sg.Input('', key='core'),
      sg.Text('AUTO'), sg.Checkbox('', default=True, key='auto')],
     [sg.Button('append'), sg.Button('exit')],
     [sg.Text('')],
-    [sg.Text('by M1R41 N1KK1', justification='right', size=(60, 1))]
+    [sg.Text("Telegram", click_submits=True, key='telegram'),
+     sg.Text('by M1R41 N1KK1', justification='right', size=(60, 1))]
 ]
 
-window = sg.Window('Speed AUR', layout)
+window = sg.Window('Speed AUR', layout, size=(450, 370))
 
 new_make = ''
 core = ''
 manager_select = ''
 
 while True:
+
     events, values = window.read()
 
     if events == sg.WIN_CLOSED or events == "exit":
         exit()
         break
 
-# Vericando o a opçao do gerenciador de download
+    # grupo no telegram
+    if events == 'telegram':
+        webbrowser.open_new_tab("https://t.me/LinuxLabo")
+        pass
 
+    # Vericando o a opçao do gerenciador de download
     if events == 'append':
+
         for x in range(1, 4):
             if str(values[x]) in 'True':
                 manager_select = str(x)
-                break
 
-    if values["auto"]:
-        core = '$(($(nproc)+1)'
-        break
+        if values["auto"]:
+            core = '$(($(nproc)+1)'
+            break
 
-    else:
-        try:
-            if int(values["core"]):
-                core = str(int(values["core"]) + 1)
-                break
+        else:
+            try:
+                if int(values["core"]):
+                    core = str(int(values["core"]) + 1)
+                    break
 
-        except ValueError:
-            sg.Popup("Digite o numero de core do processador",
-                     "ou marque a caixinha \"AUTO\"")
+            except ValueError:
+                sg.Popup("Digite o numero de core do processador",
+                         "ou marque a caixinha \"AUTO\"")
+                pass
 
 # escrevendo as modifições em um arquivo temporario
 
