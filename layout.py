@@ -3,23 +3,24 @@ from PySimpleGUI import PySimpleGUI as sg
 
 def layout_window():
     sg.theme("reddit")
-    sg.set_options(font=("Helvitica", 10, "bold"))
+    sg.set_options(font=("Ubuntu", 12, 'bold'))
 
     layout = [
-        [sg.Image('speedaur-head.png')],
+        [sg.Image('icon/head.png')],
         [sg.Text('DOWNLOAD MANAGER')],
-        [sg.Radio('Curl (Default)', "RADIO1", default=True)],
-        [sg.Radio('Aria2', "RADIO1", default=False)],
-        [sg.Radio('Axel', "RADIO1", default=False)],
+        [sg.Radio('Curl (Default)', "RADIO1", default=True),
+         sg.Radio('Aria2', "RADIO1", default=False),
+         sg.Radio('Axel', "RADIO1", default=False)],
+
         [sg.Text('PROCESSOR ARCHITECTURE')],
-        [sg.Input('', size=(23, 60), key='arch'), sg.Text('AUTO'),
+        [sg.Input('', size=(30, 30), key='arch'), sg.Text('auto'),
          sg.Checkbox('', default=True, key='processor')],
 
         [sg.Text('CORE NUMBER')],
-        [sg.Input('', size=(23, 60), key='core'),
-         sg.Text('AUTO'), sg.Checkbox('', default=True, key='auto')],
+        [sg.Input('', size=(30, 30), key='core'),
+         sg.Text('auto'), sg.Checkbox('', default=True, key='auto')],
 
-        [sg.Button('append'), sg.Button('exit')],
+        [sg.Button('OK'), sg.Button('Cancel', key='exit')],
         [sg.Text('')],
         [sg.Graph((30, 30), graph_bottom_left=(0, 30), graph_top_right=(30, 0),
                   key="telegram", change_submits=True, drag_submits=False),
