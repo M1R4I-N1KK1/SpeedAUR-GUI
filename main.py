@@ -25,16 +25,24 @@ layout = [
     [sg.Text('PROCESSOR ARCHITECTURE')],
     [sg.Input('', key='arch'), sg.Text('AUTO'),
      sg.Checkbox('', default=True, key='processor')],
+
     [sg.Text('CORE NUMBER')],
     [sg.Input('', key='core'),
      sg.Text('AUTO'), sg.Checkbox('', default=True, key='auto')],
+
     [sg.Button('append'), sg.Button('exit')],
     [sg.Text('')],
-    [sg.Text("Telegram", click_submits=True, key='telegram'),
+    [sg.Graph((30, 30), graph_bottom_left=(0, 30), graph_top_right=(30, 0),
+              key="telegram", change_submits=True, drag_submits=False),
+     sg.Graph((30, 30), graph_bottom_left=(0, 30), graph_top_right=(30, 0),
+              key="github", change_submits=True, drag_submits=False),
      sg.Text('by M1R41 N1KK1', justification='right', size=(60, 1))]
 ]
 
-window = sg.Window('Speed AUR', layout, size=(450, 370))
+window = sg.Window('Speed AUR', layout, size=(450, 380))
+
+telegram = window.Finalize().Element("telegram").DrawImage(filename="icon-telegram.png", location=(2, 1))
+github = window.Finalize().Element("github").DrawImage(filename="icon-github.png", location=(2, 1))
 
 new_make = ''
 core = ''
@@ -48,14 +56,17 @@ while True:
         exit()
         break
 
-    # grupo no telegram
+    # grupo do telegram
     if events == 'telegram':
         webbrowser.open_new_tab("https://t.me/LinuxLabo")
         pass
 
-    # Vericando o a opçao do gerenciador de download
-    if events == 'append':
+    if events == 'github':
+        webbrowser.open_new_tab("https://github.com/M1R4I-N1KK1/SpeedAUR-GUI")
+        pass
 
+    # Vericando a opçao do gerenciador de download
+    if events == 'append':
         for x in range(1, 4):
             if str(values[x]) in 'True':
                 manager_select = str(x)
@@ -71,7 +82,7 @@ while True:
                     break
 
             except ValueError:
-                sg.Popup("Digite o numero de core do processador",
+                sg.Popup("Digite o numero de core's do processador",
                          "ou marque a caixinha \"AUTO\"")
                 pass
 
