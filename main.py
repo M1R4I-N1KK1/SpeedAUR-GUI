@@ -58,8 +58,6 @@ while True:
                          "ou marque a caixinha \"AUTO\"")
 
 # escrevendo as modifições em um arquivo temporario
-#new_make = base_make.replace('MANAGER', str(manager[manager_select][0])).replace('CORE', core)
-
 with open(resource_path('new_make_core.conf'), 'w+') as make:
     make.write(base_make.replace('MANAGER', str(manager[manager_select][0])).replace('CORE', core))
 
