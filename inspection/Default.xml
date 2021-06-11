@@ -7,4 +7,13 @@
       </list>
     </option>
   </inspection_tool>
+  <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+    <option name="ignoredIdentifiers">
+      <list>
+        <option value="gi.repository.Gtk.Builder.add_from_file" />
+        <option value="gi.repository.Gtk.Builder.get_object" />
+        <option value="gi.repository.Gtk.Builder.connect_signals" />
+      </list>
+    </option>
+  </inspection_tool>
 </profile>
