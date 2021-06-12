@@ -1,8 +1,7 @@
 import json
+import final_process
 from os import path
-
 import gi
-
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
@@ -67,9 +66,12 @@ class MainWindow(object):
             else:
                 self.core = str(self.entry_core_da_cpu.get_text())
 
+
         with open(resource_path('new_make_core.conf'), 'w+') as make:
             make.write(base_make.replace('CORE', self.core).replace('ARCH', self.arch)
                        .replace('MANAGER', manager[self.manager_select][0]))
+
+        final_process.apply_system()
 
 
 builder.connect_signals(MainWindow())
