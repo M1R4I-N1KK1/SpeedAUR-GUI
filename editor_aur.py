@@ -69,8 +69,8 @@ class MainWindow(object):
             else:
                 self.core = str(int(self.entry_core_da_cpu.get_text()) + 1)
 
-        modification = data.replace('CORE', self.core).replace('MANAGER', manager[self.manager_select][0])\
-            .replace('ARCH', self.arch)
+        modification = data.replace('CORECPU', self.core).replace('MANAGER', manager[self.manager_select][0])\
+            .replace('ARCHCPU', self.arch)
         with open(resource_path('makepkg.conf'), 'wt') as base_make:
             base_make.write(modification)
 
