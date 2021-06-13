@@ -1,5 +1,6 @@
 import json
 import final_process
+import shutil
 from os import path
 import gi
 gi.require_version("Gtk", "3.0")
@@ -10,11 +11,13 @@ def resource_path(relative_path):
     return path.realpath(relative_path)
 
 
+shutil.copy(resource_path('base.conf'), resource_path('makepkg.conf'))
+
 with open(resource_path('manager.json')) as download_manager:
     manager = json.load(download_manager)
 
-with open(resource_path('base.conf'), 'r') as base:
-    base_make = base.read()
+with open(resource_path('makepkg.conf'), 'rt') as base:
+    data = base.read()
 
 builder = Gtk.Builder()
 builder.add_from_file('window_gtk_aur.glade')
@@ -64,12 +67,12 @@ class MainWindow(object):
             if self.entry_core_da_cpu.get_text() == '':
                 self.core = '$(($(nproc)+1)'
             else:
-                self.core = str(self.entry_core_da_cpu.get_text())
+                self.core = str(int(self.entry_core_da_cpu.get_text()) + 1)
 
-
-        with open(resource_path('new_make_core.conf'), 'w+') as make:
-            make.write(base_make.replace('CORE', self.core).replace('ARCH', self.arch)
-                       .replace('MANAGER', manager[self.manager_select][0]))
+        modification = data.replace('CORE', self.core).replace('MANAGER', manager[self.manager_select][0])\
+            .replace('ARCH', self.arch)
+        with open(resource_path('makepkg.conf'), 'wt') as base_make:
+            base_make.write(modification)
 
         final_process.apply_system()
 

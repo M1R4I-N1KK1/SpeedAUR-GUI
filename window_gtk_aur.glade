@@ -292,9 +292,6 @@
                     <property name="position">6</property>
                   </packing>
                 </child>
-                <child>
-                  <placeholder/>
-                </child>
               </object>
             </child>
             <child type="tab">
@@ -326,10 +323,9 @@
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="margin-start">5</property>
-                        <property name="margin-end">5</property>
                         <property name="margin-top">5</property>
                         <property name="margin-bottom">5</property>
-                        <property name="pixbuf">icon/github.png</property>
+                        <property name="pixbuf">icon/github.svg</property>
                       </object>
                       <packing>
                         <property name="left-attach">0</property>
@@ -343,8 +339,6 @@
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
                         <property name="halign">start</property>
-                        <property name="margin-start">5</property>
-                        <property name="margin-end">5</property>
                         <property name="margin-top">5</property>
                         <property name="margin-bottom">5</property>
                         <property name="hexpand">True</property>
@@ -361,7 +355,6 @@
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="margin-start">5</property>
-                        <property name="margin-end">5</property>
                         <property name="margin-top">5</property>
                         <property name="margin-bottom">5</property>
                         <property name="pixbuf">icon/telegram.png</property>
@@ -378,8 +371,6 @@
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
                         <property name="halign">start</property>
-                        <property name="margin-start">5</property>
-                        <property name="margin-end">5</property>
                         <property name="margin-top">5</property>
                         <property name="margin-bottom">5</property>
                         <property name="hexpand">True</property>
