@@ -13,7 +13,7 @@ def resource_path(relative_path):
 with open(resource_path('manager.json')) as download_manager:
     manager = json.load(download_manager)
 
-with open(resource_path('makepkg.conf'), 'rt') as base:
+with open(resource_path('make_base'), 'rt') as base:
     data = base.read()
 
 builder = Gtk.Builder()
@@ -69,12 +69,12 @@ class MainWindow(object):
         make = data
         modification = mod.replace('CORECPU', self.core).replace('MANAGER', manager[self.manager_select][0])\
             .replace('ARCHCPU', self.arch)
-        with open(resource_path('makepkg.conf'), 'wt') as base_make:
+        with open(resource_path('make_base'), 'wt') as base_make:
             base_make.write(modification)
 
         final_process.apply_system()
 
-        with open(resource_path('makepkg.conf'), 'wt') as make_default:
+        with open(resource_path('make_base'), 'wt') as make_default:
             make_default.write(make)
 
 

@@ -11,7 +11,7 @@ def resource_path(relative_path):
 def apply_system():
     while True:
         if os.path.exists('/etc/makepkg.conf.bk'):
-            sub.run(['pkexec', 'cp', resource_path('makepkg.conf'), '/etc/makepkg.conf'])
+            sub.run(['pkexec', 'cp', resource_path('make_base'), '/etc/makepkg.conf'])
             break
 
         else:
