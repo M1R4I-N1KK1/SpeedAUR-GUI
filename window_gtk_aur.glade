@@ -2,6 +2,24 @@
 <!-- Generated with glade 3.38.2 -->
 <interface>
   <requires lib="gtk+" version="3.24"/>
+  <object class="GtkImage" id="git_image">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <property name="margin-start">5</property>
+    <property name="margin-end">5</property>
+    <property name="margin-top">5</property>
+    <property name="margin-bottom">5</property>
+    <property name="pixbuf">icon/github.svg</property>
+  </object>
+  <object class="GtkImage" id="telegram_image">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <property name="margin-start">5</property>
+    <property name="margin-end">5</property>
+    <property name="margin-top">5</property>
+    <property name="margin-bottom">5</property>
+    <property name="pixbuf">icon/telegram.svg</property>
+  </object>
   <object class="GtkWindow" id="main_window">
     <property name="name">Editor AUR</property>
     <property name="can-focus">False</property>
@@ -314,74 +332,14 @@
                 <property name="margin-bottom">5</property>
                 <property name="orientation">vertical</property>
                 <child>
-                  <!-- n-columns=2 n-rows=2 -->
-                  <object class="GtkGrid">
+                  <object class="GtkImage">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <child>
-                      <object class="GtkImage">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
-                        <property name="margin-start">5</property>
-                        <property name="margin-top">5</property>
-                        <property name="margin-bottom">5</property>
-                        <property name="pixbuf">icon/github.svg</property>
-                      </object>
-                      <packing>
-                        <property name="left-attach">0</property>
-                        <property name="top-attach">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkLinkButton" id="git_link">
-                        <property name="label" translatable="yes">Github: Editor AUR</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="receives-default">True</property>
-                        <property name="halign">start</property>
-                        <property name="margin-top">5</property>
-                        <property name="margin-bottom">5</property>
-                        <property name="hexpand">True</property>
-                        <property name="relief">none</property>
-                        <property name="uri">https://github.com/M1R4I-N1KK1/SpeedAUR-GUI</property>
-                      </object>
-                      <packing>
-                        <property name="left-attach">1</property>
-                        <property name="top-attach">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkImage">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
-                        <property name="margin-start">5</property>
-                        <property name="margin-top">5</property>
-                        <property name="margin-bottom">5</property>
-                        <property name="pixbuf">icon/telegram.png</property>
-                      </object>
-                      <packing>
-                        <property name="left-attach">0</property>
-                        <property name="top-attach">1</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkLinkButton" id="telegram_group_link">
-                        <property name="label" translatable="yes">Telegram: PC Laboratory</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="receives-default">True</property>
-                        <property name="halign">start</property>
-                        <property name="margin-top">5</property>
-                        <property name="margin-bottom">5</property>
-                        <property name="hexpand">True</property>
-                        <property name="relief">none</property>
-                        <property name="uri">https://t.me/LinuxLabo</property>
-                      </object>
-                      <packing>
-                        <property name="left-attach">1</property>
-                        <property name="top-attach">1</property>
-                      </packing>
-                    </child>
+                    <property name="halign">center</property>
+                    <property name="valign">end</property>
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                    <property name="pixbuf">icon/window_icon.svg</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -410,6 +368,56 @@
                     <property name="expand">False</property>
                     <property name="fill">True</property>
                     <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <!-- n-columns=2 n-rows=1 -->
+                  <object class="GtkGrid">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="valign">end</property>
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                    <child>
+                      <object class="GtkLinkButton" id="git_link">
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">True</property>
+                        <property name="halign">start</property>
+                        <property name="margin-top">5</property>
+                        <property name="margin-bottom">5</property>
+                        <property name="hexpand">True</property>
+                        <property name="image">git_image</property>
+                        <property name="relief">none</property>
+                        <property name="always-show-image">True</property>
+                        <property name="uri">https://github.com/M1R4I-N1KK1/SpeedAUR-GUI</property>
+                      </object>
+                      <packing>
+                        <property name="left-attach">1</property>
+                        <property name="top-attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLinkButton" id="telegram_link">
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">True</property>
+                        <property name="image">telegram_image</property>
+                        <property name="relief">none</property>
+                        <property name="always-show-image">True</property>
+                        <property name="uri">https://t.me/LinuxLabo</property>
+                      </object>
+                      <packing>
+                        <property name="left-attach">0</property>
+                        <property name="top-attach">0</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">2</property>
                   </packing>
                 </child>
               </object>

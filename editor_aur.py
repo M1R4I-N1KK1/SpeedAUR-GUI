@@ -1,6 +1,5 @@
 import json
 import final_process
-import shutil
 from os import path
 import gi
 gi.require_version("Gtk", "3.0")
@@ -10,8 +9,6 @@ from gi.repository import Gtk
 def resource_path(relative_path):
     return path.realpath(relative_path)
 
-
-shutil.copy(resource_path('base.conf'), resource_path('makepkg.conf'))
 
 with open(resource_path('manager.json')) as download_manager:
     manager = json.load(download_manager)
@@ -68,13 +65,17 @@ class MainWindow(object):
                 self.core = '$(($(nproc)+1)'
             else:
                 self.core = str(int(self.entry_core_da_cpu.get_text()) + 1)
-
-        modification = data.replace('CORECPU', self.core).replace('MANAGER', manager[self.manager_select][0])\
+        mod = data
+        make = data
+        modification = mod.replace('CORECPU', self.core).replace('MANAGER', manager[self.manager_select][0])\
             .replace('ARCHCPU', self.arch)
         with open(resource_path('makepkg.conf'), 'wt') as base_make:
             base_make.write(modification)
 
         final_process.apply_system()
+
+        with open(resource_path('makepkg.conf'), 'wt') as make_default:
+            make_default.write(make)
 
 
 builder.connect_signals(MainWindow())
