@@ -1,5 +1,6 @@
 import json
 import final_process
+import hard_info
 from os import path
 import gi
 gi.require_version("Gtk", "3.0")
@@ -18,6 +19,7 @@ with open(resource_path('make_base'), 'rt') as base:
 
 builder = Gtk.Builder()
 builder.add_from_file('window_gtk_aur.glade')
+mod = make = data
 
 
 class MainWindow(object):
@@ -51,10 +53,10 @@ class MainWindow(object):
             self.manager_select = 'axel'
 
         if self.auto_arquitetura_da_cpu.get_active():
-            self.arch = 'native'
+            self.arch = hard_info.type_processor()
         else:
             if self.entry_arquitetura_da_cpu.get_text() == '':
-                self.arch = 'native'
+                self.arch = 'generic'
             else:
                 self.arch = str(self.entry_arquitetura_da_cpu.get_text())
 
@@ -62,13 +64,13 @@ class MainWindow(object):
             self.core = '$(($(nproc)+1)'
         else:
             if self.entry_core_da_cpu.get_text() == '':
-                self.core = '$(($(nproc)+1)'
+                self.core = hard_info.proc_info()
             else:
                 self.core = str(int(self.entry_core_da_cpu.get_text()) + 1)
-        mod = data
-        make = data
+
         modification = mod.replace('CORECPU', self.core).replace('MANAGER', manager[self.manager_select][0])\
             .replace('ARCHCPU', self.arch)
+
         with open(resource_path('make_base'), 'wt') as base_make:
             base_make.write(modification)
 

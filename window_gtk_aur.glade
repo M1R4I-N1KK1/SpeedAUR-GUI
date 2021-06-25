@@ -360,7 +360,7 @@
                     <property name="hexpand">True</property>
                     <property name="vexpand">True</property>
                     <property name="label" translatable="yes">Editor AUR:
-É e um facilitador para editar as configuração  do MAKEPKG.</property>
+É um facilitador para editar as configuração  do MAKEPKG.</property>
                     <property name="justify">center</property>
                     <property name="ellipsize">middle</property>
                   </object>
