@@ -4,5 +4,5 @@ Encoding=UTF-8
 Name=Editor AUR
 Comment=a GUI mode configurator for makepkg
 Exec=/usr/bin/python3 /opt/editor_aur/editor_aur.py
-Icon=/opt/editor_aur/icon/window_icon.svg
+Icon=/opt/editor_aur/icon/editor_icon.png
 Terminal=false
