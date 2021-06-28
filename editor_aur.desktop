@@ -4,5 +4,5 @@ Encoding=UTF-8
 Name=Editor AUR
 Comment="a GUI mode configurator for makepkg"
 Exec="sh /opt/editor-aur/setup.sh"
-Icon="/opt/editor-aur/icon/window_icon.svg"
+Icon="/opt/editor-aur/icon/editor_icon.png"
 Terminal=false
