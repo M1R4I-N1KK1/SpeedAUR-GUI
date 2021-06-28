@@ -2,7 +2,7 @@
 Type=Application
 Encoding=UTF-8
 Name=Editor AUR
-Comment=a GUI mode configurator for makepkg
-Exec=/usr/bin/bash /opt/editor-aur/setup.sh
-Icon=/opt/editor-aur/icon/editor_icon.png
+Comment="a GUI mode configurator for makepkg"
+Exec="sh /opt/editor-aur/setup.sh"
+Icon="/opt/editor-aur/icon/editor_icon.png"
 Terminal=false
