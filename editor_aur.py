@@ -1,4 +1,3 @@
-## M1R4I
 import json
 import final_process
 import hard_info
