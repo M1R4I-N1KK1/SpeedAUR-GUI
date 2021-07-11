@@ -71,7 +71,7 @@ class MainWindow(object):
 
         if self.entry_core_da_cpu.get_text() == '':
             if self.core_auto_button.get_active():
-                self.core = '$(($(nproc)+1)'
+                self.core = str(hard_info.proc_all())
             else:
                 self.core = hard_info.proc_info()
 
