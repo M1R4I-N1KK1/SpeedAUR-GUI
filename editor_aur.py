@@ -2,9 +2,9 @@ import json
 import final_process
 import hard_info
 from os import path
-from gi.repository import Gtk
 import gi
 gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk
 
 
 def resource_path(relative_path):
@@ -38,6 +38,9 @@ class MainWindow(object):
         self.on_arch = builder.get_object('arch_auto_button')
 
         self.core_manual_button = builder.get_object('core_manual_button')
+        self.spin_core_list = builder.get_object('spin_core_list')
+        self.adjustment_list = builder.get_object('adjustment_list')
+
 
     ############################# Close APP and Dialog #############################
     def close_confirm_dialog_clicked(self, *args):
@@ -66,22 +69,20 @@ class MainWindow(object):
                 elif cores.get_name() == "default":
                     return hard_info.proc_meta()
                 elif cores.get_name() == "manual":
-                    try:
-                        return str(int(self.entry_core_da_cpu.get_text()) + 1)
-                    except ValueError:
-                        return hard_info.proc_meta()
+                    return str(self.spin_core_list.get_value_as_int() + 1)
 
     def off_core_manual_button(self, *args):
-        value = False
-        value_box = ''
-        self.entry_core_da_cpu.set_visible(value)
-        self.entry_core_da_cpu.set_text(value_box)
-        self.entry_core_da_cpu.set_editable(value)
+        value = 2.0
+        value_box = False
+        self.adjustment_list.set_upper(value)
+        self.spin_core_list.set_value(value)
+        self.spin_core_list.set_visible(value_box)
 
     def on_core_manual_button_pressed(self, *args):
-        if self.core_auto_button:
-            value = self.core_auto_button
-            self.entry_core_da_cpu.set_visible(value)
+        value_box = True
+        value = int(hard_info.proc_all()) -1
+        self.adjustment_list.set_upper(value)
+        self.spin_core_list.set_visible(value_box)
 
     ############################# Arch Process #############################
     def arch_process(self, *args):
@@ -99,13 +100,11 @@ class MainWindow(object):
         if self.arch_auto_button:
             value = self.arch_auto_button
             self.entry_arquitetura_da_cpu.set_visible(value)
-            self.entry_arquitetura_da_cpu.set_editable(value)
 
     def off_arch_manual_button(self, *args):
         value = False
-        value_box = ''
         self.entry_arquitetura_da_cpu.set_visible(value)
-        self.entry_arquitetura_da_cpu.set_text(value_box)
+        self.entry_arquitetura_da_cpu.set_text('')
 
     ############################# Button OK #############################
     def bt_ok_clicked(self, *args):
