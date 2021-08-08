@@ -23,6 +23,7 @@ def proc_meta():
 
 
 def type_processor():
-    type_proc = str(sub.check_output(['sh', 'check.sh']))
+    check = ["(gcc -c -Q -march=native --help=target | grep march | awk '{print $2}' | head -1)"]
+    type_proc = str(sub.check_output(check, shell=True))
 
     return type_proc[2:][:-3]

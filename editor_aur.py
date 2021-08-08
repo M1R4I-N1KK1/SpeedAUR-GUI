@@ -1,5 +1,5 @@
 import json
-import final_process
+import process
 import hard_info
 from os import path
 import gi
@@ -96,7 +96,7 @@ class MainWindow(object):
             .replace('MANAGER', manager[self.manager_select()][0]).replace('ARCHCPU', self.arch_process())
 
         CreatorMod.write_file(MODIF=modification, BASE='make_base')
-        final_process.apply_system()
+        process.apply_system()
         CreatorMod.write_file(MODIF=make, BASE='make_default')
 
         self.window_msg.show_all()
