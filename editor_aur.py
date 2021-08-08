@@ -4,26 +4,12 @@ import hard_info
 from os import path
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk
-
-
-def resource_path(relative_path):
-    return path.realpath(relative_path)
-
-
-with open(resource_path('manager.json')) as download_manager:
-    manager = json.load(download_manager)
-
-with open(resource_path('make_base'), 'rt') as base:
-    data = base.read()
-
-builder = Gtk.Builder()
-builder.add_from_file('window_gtk_aur.glade')
-mod = make = data
+from gi.repository import Gtk, Gdk
 
 
 class MainWindow(object):
     def __init__(self, *args, **kwargs):
+        self.style_css()
 
         self.window_msg = builder.get_object('msg')
 
@@ -41,6 +27,15 @@ class MainWindow(object):
         self.spin_core_list = builder.get_object('spin_core_list')
         self.adjustment_list = builder.get_object('adjustment_list')
 
+    ############################# Style App #############################
+    def style_css(self, *args):
+        css_provider = Gtk.CssProvider()
+        css_provider.load_from_path('ui/editor_style.css')
+        screen = Gdk.Screen()
+        style_context = Gtk.StyleContext()
+        style_context.add_provider_for_screen(screen.get_default(),
+                                              css_provider,
+                                              Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 
     ############################# Close APP and Dialog #############################
     def close_confirm_dialog_clicked(self, *args):
@@ -48,9 +43,6 @@ class MainWindow(object):
 
     def main_window_destroy(self, *args):
         Gtk.main_quit()
-
-    def bt_cancel_clicked(self, *args):
-        self.main_window_destroy()
 
     ############################# Manager Download #############################
     def manager_select(self, *args):
@@ -72,17 +64,12 @@ class MainWindow(object):
                     return str(self.spin_core_list.get_value_as_int() + 1)
 
     def off_core_manual_button(self, *args):
-        value = 2.0
-        value_box = False
-        self.adjustment_list.set_upper(value)
-        self.spin_core_list.set_value(value)
-        self.spin_core_list.set_visible(value_box)
+        self.spin_core_list.set_value(2)
+        self.spin_core_list.set_visible(False)
 
     def on_core_manual_button_pressed(self, *args):
-        value_box = True
-        value = int(hard_info.proc_all()) -1
-        self.adjustment_list.set_upper(value)
-        self.spin_core_list.set_visible(value_box)
+        self.adjustment_list.set_upper(int(hard_info.proc_all()) -1)
+        self.spin_core_list.set_visible(True)
 
     ############################# Arch Process #############################
     def arch_process(self, *args):
@@ -97,34 +84,54 @@ class MainWindow(object):
                     return str(self.entry_arquitetura_da_cpu.get_text())
 
     def on_arch_manual_button_pressed(self, *args):
-        if self.arch_auto_button:
-            value = self.arch_auto_button
-            self.entry_arquitetura_da_cpu.set_visible(value)
+        self.entry_arquitetura_da_cpu.set_visible(self.arch_auto_button)
 
     def off_arch_manual_button(self, *args):
-        value = False
-        self.entry_arquitetura_da_cpu.set_visible(value)
+        self.entry_arquitetura_da_cpu.set_visible(False)
         self.entry_arquitetura_da_cpu.set_text('')
 
     ############################# Button OK #############################
     def bt_ok_clicked(self, *args):
-
         modification = mod.replace('CORECPU', self.core_process())\
             .replace('MANAGER', manager[self.manager_select()][0]).replace('ARCHCPU', self.arch_process())
 
-        with open(resource_path('make_base'), 'wt') as base_make:
-            base_make.write(modification)
-
+        CreatorMod.write_file(MODIF=modification, BASE='make_base')
         final_process.apply_system()
-
-        with open(resource_path('make_base'), 'wt') as make_default:
-            make_default.write(make)
+        CreatorMod.write_file(MODIF=make, BASE='make_default')
 
         self.window_msg.show_all()
 
+############################# Creator File #############################
+class CreatorMod:
+    def open_file(FILE, MODO):
+        with open(resource_path(FILE), MODO) as base:
+            data = base.read()
+            return data
 
+
+    def write_file(MODIF, BASE):
+        with open(resource_path('make_base'), 'wt') as BASE:
+            BASE.write(MODIF)
+
+
+def resource_path(relative_path):
+    return path.realpath(relative_path)
+
+
+with open(resource_path('manager.json')) as download_manager:
+    manager = json.load(download_manager)
+
+mod = make = CreatorMod.open_file(FILE='make_base', MODO='rt')
+
+
+############################# Init App #############################
+builder = Gtk.Builder()
+builder.add_from_file('ui/editor_ui.glade')
 builder.connect_signals(MainWindow())
 window = builder.get_object('main_window').show_all()
 
 if __name__ == '__main__':
-    Gtk.main()
+    try:
+        Gtk.main()
+    except KeyboardInterrupt:
+        pass

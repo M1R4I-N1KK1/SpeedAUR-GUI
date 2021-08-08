@@ -1,0 +1,91 @@
+#headbar_app{
+	background-image: url('../icon/speedaur-head.png');
+	background-position: center;
+	background-repeat: no-repeat;
+
+}
+
+#head_bar{
+    background: #007acc;
+    color: whitesmoke;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#line_bar_divisor{
+    background: whitesmoke;
+}
+
+#btn_ok{
+    background: #1f7f6e;
+    color: whitesmoke;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#btn_cancel{
+    background: #ff2626;
+    color: whitesmoke;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#about_msg{
+    font-weight: bold;
+    font-size: 16;
+}
+
+#btn_telegram{
+	background: #3298ba;
+	background-position: center;
+	border-radius: 50%;
+	background-image: url('../icon/telegram.svg');
+	background-repeat: no-repeat;
+	background-size: 26px;
+}
+
+#btn_github{
+	background: #8034a9;
+	background-position: center;
+	border-radius: 50%;
+	background-image: url('../icon/github.svg');
+	background-repeat: no-repeat;
+	background-size: 26px;
+}
+
+#btn_telegram:hover{
+    animation: pulse_telegram 1.5s linear infinite reverse;
+    background-position: center;
+	background-size: 22px;
+}
+
+#btn_github:hover{
+    animation: pulse_github 1.5s linear infinite reverse;
+    background-position: center;
+	background-size: 22px;
+}
+
+
+@keyframes pulse_telegram{
+	0%{
+		box-shadow: 0 0 0 0 rgba(50, 152, 186, 1);
+	}
+
+	100%{
+		box-shadow: 0 0 0 8px rgba(50, 152, 186, 0);
+	}
+}
+
+@keyframes pulse_github{
+	0%{
+		box-shadow: 0 0 0 0 rgba(128, 52, 169, 1);
+	}
+
+	100%{
+		box-shadow: 0 0 0 8px rgba(128, 52, 169, 0);
+	}
+}
+
+.bold_font{
+    font-weight: bold;
+}

@@ -7,88 +7,6 @@
     <property name="step-increment">2</property>
     <property name="page-increment">10</property>
   </object>
-  <object class="GtkImage" id="git_image">
-    <property name="visible">True</property>
-    <property name="can-focus">False</property>
-    <property name="margin-start">5</property>
-    <property name="margin-end">5</property>
-    <property name="margin-top">5</property>
-    <property name="margin-bottom">5</property>
-    <property name="pixbuf">icon/github.svg</property>
-  </object>
-  <object class="GtkWindow" id="msg">
-    <property name="can-focus">False</property>
-    <property name="resizable">False</property>
-    <property name="window-position">center-on-parent</property>
-    <property name="default-width">200</property>
-    <property name="default-height">70</property>
-    <property name="destroy-with-parent">True</property>
-    <property name="type-hint">dialog</property>
-    <property name="decorated">False</property>
-    <property name="gravity">center</property>
-    <child>
-      <object class="GtkBox">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="margin-start">5</property>
-        <property name="margin-end">5</property>
-        <property name="margin-top">5</property>
-        <property name="margin-bottom">5</property>
-        <property name="orientation">vertical</property>
-        <child>
-          <object class="GtkLabel">
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
-            <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="margin-start">5</property>
-            <property name="margin-end">5</property>
-            <property name="margin-top">5</property>
-            <property name="margin-bottom">5</property>
-            <property name="hexpand">True</property>
-            <property name="vexpand">True</property>
-            <property name="label" translatable="yes">Configuração aplicada</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="close_confirm_dialog">
-            <property name="label" translatable="yes">Fecha</property>
-            <property name="visible">True</property>
-            <property name="can-focus">True</property>
-            <property name="receives-default">True</property>
-            <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="margin-start">5</property>
-            <property name="margin-end">5</property>
-            <property name="margin-top">5</property>
-            <property name="margin-bottom">5</property>
-            <property name="hexpand">True</property>
-            <property name="vexpand">True</property>
-            <signal name="clicked" handler="close_confirm_dialog_clicked" swapped="no"/>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-      </object>
-    </child>
-  </object>
-  <object class="GtkImage" id="telegram_image">
-    <property name="visible">True</property>
-    <property name="can-focus">False</property>
-    <property name="margin-start">5</property>
-    <property name="margin-end">5</property>
-    <property name="margin-top">5</property>
-    <property name="margin-bottom">5</property>
-    <property name="pixbuf">icon/telegram.svg</property>
-  </object>
   <object class="GtkWindow" id="main_window">
     <property name="name">Editor AUR</property>
     <property name="visible">True</property>
@@ -122,8 +40,13 @@
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkBox">
+                    <property name="name">head_bar</property>
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
+                    <property name="margin-start">5</property>
+                    <property name="margin-end">5</property>
+                    <property name="margin-top">5</property>
+                    <property name="margin-bottom">5</property>
                     <child>
                       <object class="GtkLabel">
                         <property name="visible">True</property>
@@ -144,6 +67,7 @@
                     </child>
                     <child>
                       <object class="GtkSeparator">
+                        <property name="name">line_bar_divisor</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="margin-left">9</property>
@@ -186,6 +110,9 @@
                         <property name="receives-default">False</property>
                         <property name="draw-indicator">True</property>
                         <property name="group">curl_manager</property>
+                        <style>
+                          <class name="bold_font"/>
+                        </style>
                       </object>
                       <packing>
                         <property name="left-attach">0</property>
@@ -199,8 +126,12 @@
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">False</property>
+                        <property name="margin-top">1</property>
                         <property name="draw-indicator">True</property>
                         <property name="group">curl_manager</property>
+                        <style>
+                          <class name="bold_font"/>
+                        </style>
                       </object>
                       <packing>
                         <property name="left-attach">0</property>
@@ -216,6 +147,9 @@
                         <property name="receives-default">False</property>
                         <property name="active">True</property>
                         <property name="draw-indicator">True</property>
+                        <style>
+                          <class name="bold_font"/>
+                        </style>
                       </object>
                       <packing>
                         <property name="left-attach">0</property>
@@ -231,8 +165,13 @@
                 </child>
                 <child>
                   <object class="GtkBox">
+                    <property name="name">head_bar</property>
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
+                    <property name="margin-start">5</property>
+                    <property name="margin-end">5</property>
+                    <property name="margin-top">5</property>
+                    <property name="margin-bottom">5</property>
                     <child>
                       <object class="GtkLabel" id="arquitetura_do_processador">
                         <property name="visible">True</property>
@@ -253,6 +192,7 @@
                     </child>
                     <child>
                       <object class="GtkSeparator">
+                        <property name="name">line_bar_divisor</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="margin-left">9</property>
@@ -309,6 +249,9 @@
                                 <property name="active">True</property>
                                 <property name="draw-indicator">True</property>
                                 <signal name="pressed" handler="off_arch_manual_button" swapped="no"/>
+                                <style>
+                                  <class name="bold_font"/>
+                                </style>
                               </object>
                               <packing>
                                 <property name="expand">True</property>
@@ -329,6 +272,9 @@
                                 <property name="draw-indicator">True</property>
                                 <property name="group">arch_auto_button</property>
                                 <signal name="pressed" handler="off_arch_manual_button" swapped="no"/>
+                                <style>
+                                  <class name="bold_font"/>
+                                </style>
                               </object>
                               <packing>
                                 <property name="expand">True</property>
@@ -349,6 +295,9 @@
                                 <property name="draw-indicator">True</property>
                                 <property name="group">arch_auto_button</property>
                                 <signal name="pressed" handler="on_arch_manual_button_pressed" swapped="no"/>
+                                <style>
+                                  <class name="bold_font"/>
+                                </style>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -409,8 +358,13 @@
                 </child>
                 <child>
                   <object class="GtkBox">
+                    <property name="name">head_bar</property>
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
+                    <property name="margin-start">5</property>
+                    <property name="margin-end">5</property>
+                    <property name="margin-top">5</property>
+                    <property name="margin-bottom">5</property>
                     <child>
                       <object class="GtkLabel">
                         <property name="visible">True</property>
@@ -430,6 +384,7 @@
                     </child>
                     <child>
                       <object class="GtkSeparator">
+                        <property name="name">line_bar_divisor</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="margin-left">9</property>
@@ -480,6 +435,9 @@
                             <property name="active">True</property>
                             <property name="draw-indicator">True</property>
                             <signal name="pressed" handler="off_core_manual_button" swapped="no"/>
+                            <style>
+                              <class name="bold_font"/>
+                            </style>
                           </object>
                           <packing>
                             <property name="expand">True</property>
@@ -500,6 +458,9 @@
                             <property name="draw-indicator">True</property>
                             <property name="group">core_auto_button</property>
                             <signal name="pressed" handler="off_core_manual_button" swapped="no"/>
+                            <style>
+                              <class name="bold_font"/>
+                            </style>
                           </object>
                           <packing>
                             <property name="expand">True</property>
@@ -520,6 +481,9 @@
                             <property name="draw-indicator">True</property>
                             <property name="group">core_auto_button</property>
                             <signal name="pressed" handler="on_core_manual_button_pressed" swapped="no"/>
+                            <style>
+                              <class name="bold_font"/>
+                            </style>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -572,7 +536,8 @@
                     <property name="can-focus">False</property>
                     <child>
                       <object class="GtkButton" id="bt_ok">
-                        <property name="label" translatable="yes">OK</property>
+                        <property name="label" translatable="yes">Confirmar</property>
+                        <property name="name">btn_ok</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
@@ -589,18 +554,17 @@
                     </child>
                     <child>
                       <object class="GtkButton" id="bt_cancel">
-                        <property name="label" translatable="yes">Sair</property>
+                        <property name="label" translatable="yes">   Sair   </property>
+                        <property name="name">btn_cancel</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
-                        <property name="halign">end</property>
                         <property name="margin-start">5</property>
                         <property name="margin-end">5</property>
                         <property name="margin-top">5</property>
                         <property name="margin-bottom">5</property>
-                        <property name="hexpand">False</property>
                         <property name="image-position">right</property>
-                        <signal name="clicked" handler="bt_cancel_clicked" swapped="no"/>
+                        <signal name="clicked" handler="main_window_destroy" swapped="no"/>
                       </object>
                       <packing>
                         <property name="left-attach">1</property>
@@ -636,14 +600,29 @@
                 <property name="margin-bottom">5</property>
                 <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkImage">
+                  <object class="GtkFrame">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="halign">center</property>
-                    <property name="valign">end</property>
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
-                    <property name="pixbuf">icon/window_icon.svg</property>
+                    <property name="label-xalign">0</property>
+                    <property name="shadow-type">none</property>
+                    <child>
+                      <object class="GtkAlignment">
+                        <property name="name">headbar_app</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="left-padding">12</property>
+                        <child>
+                          <placeholder/>
+                        </child>
+                      </object>
+                    </child>
+                    <child type="label">
+                      <object class="GtkLabel">
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="label" translatable="yes">__glade_unnamed_20</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -653,6 +632,7 @@
                 </child>
                 <child>
                   <object class="GtkLabel">
+                    <property name="name">about_msg</property>
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <property name="halign">center</property>
@@ -684,27 +664,36 @@
                     <property name="hexpand">True</property>
                     <property name="vexpand">True</property>
                     <child>
-                      <object class="GtkLinkButton" id="git_link">
+                      <object class="GtkLinkButton" id="telegram_link">
+                        <property name="name">btn_telegram</property>
+                        <property name="width-request">36</property>
+                        <property name="height-request">36</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
-                        <property name="halign">start</property>
                         <property name="margin-start">5</property>
                         <property name="margin-end">5</property>
                         <property name="margin-top">5</property>
                         <property name="margin-bottom">5</property>
-                        <property name="image">git_image</property>
                         <property name="relief">none</property>
-                        <property name="always-show-image">True</property>
-                        <property name="uri">https://github.com/M1R4I-N1KK1/SpeedAUR-GUI</property>
+                        <property name="uri">https://t.me/LinuxLabo</property>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <style>
+                          <class name="animation_pulse"/>
+                        </style>
                       </object>
                       <packing>
-                        <property name="left-attach">1</property>
+                        <property name="left-attach">0</property>
                         <property name="top-attach">0</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLinkButton" id="telegram_link">
+                      <object class="GtkLinkButton" id="git_link">
+                        <property name="name">btn_github</property>
+                        <property name="width-request">36</property>
+                        <property name="height-request">36</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
@@ -712,13 +701,17 @@
                         <property name="margin-end">5</property>
                         <property name="margin-top">5</property>
                         <property name="margin-bottom">5</property>
-                        <property name="image">telegram_image</property>
                         <property name="relief">none</property>
-                        <property name="always-show-image">True</property>
-                        <property name="uri">https://t.me/LinuxLabo</property>
+                        <property name="uri">https://github.com/M1R4I-N1KK1/SpeedAUR-GUI</property>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <style>
+                          <class name="animation_pulse"/>
+                        </style>
                       </object>
                       <packing>
-                        <property name="left-attach">0</property>
+                        <property name="left-attach">1</property>
                         <property name="top-attach">0</property>
                       </packing>
                     </child>
@@ -760,14 +753,72 @@
           </packing>
         </child>
         <child>
-          <object class="GtkImage">
+          <placeholder/>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="msg">
+    <property name="can-focus">False</property>
+    <property name="resizable">False</property>
+    <property name="window-position">center-on-parent</property>
+    <property name="default-width">200</property>
+    <property name="default-height">70</property>
+    <property name="destroy-with-parent">True</property>
+    <property name="type-hint">dialog</property>
+    <property name="decorated">False</property>
+    <property name="gravity">center</property>
+    <child>
+      <object class="GtkBox">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="margin-start">5</property>
+        <property name="margin-end">5</property>
+        <property name="margin-top">5</property>
+        <property name="margin-bottom">5</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="margin-start">2</property>
-            <property name="margin-end">2</property>
-            <property name="margin-top">2</property>
-            <property name="margin-bottom">2</property>
-            <property name="pixbuf">icon/speedaur-head.png</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+            <property name="margin-start">5</property>
+            <property name="margin-end">5</property>
+            <property name="margin-top">5</property>
+            <property name="margin-bottom">5</property>
+            <property name="hexpand">True</property>
+            <property name="vexpand">True</property>
+            <property name="label" translatable="yes">Configuração aplicada</property>
+            <style>
+              <class name="bold_font"/>
+            </style>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="close_confirm_dialog">
+            <property name="label" translatable="yes">Fecha</property>
+            <property name="name">btn_cancel</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+            <property name="margin-start">5</property>
+            <property name="margin-end">5</property>
+            <property name="margin-top">5</property>
+            <property name="margin-bottom">5</property>
+            <property name="hexpand">True</property>
+            <property name="vexpand">True</property>
+            <signal name="clicked" handler="close_confirm_dialog_clicked" swapped="no"/>
+            <style>
+              <class name="bold_font"/>
+            </style>
           </object>
           <packing>
             <property name="expand">False</property>
