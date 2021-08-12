@@ -81,7 +81,7 @@ class MainWindow(object):
                     return str(self.spin_core_list.get_value_as_int() + 1)
 
     def off_core_manual_button(self, *args):
-
+        self.spin_core_list.set_visible(False)
         self.spin_core_list.set_value(2)
 
     def on_core_manual_button_pressed(self, *args):
