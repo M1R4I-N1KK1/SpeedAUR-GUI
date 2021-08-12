@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="64"
+   height="64"
+   viewBox="0 0 16.933333 16.933334"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="radio_inative.svg"
+   inkscape:version="1.1 (c4e8f9ed74, 2021-05-24)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     width="793.70081px"
+     inkscape:snap-global="false"
+     inkscape:zoom="3.7843434"
+     inkscape:cx="24.839183"
+     inkscape:cy="43.600694"
+     inkscape:window-width="1366"
+     inkscape:window-height="695"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path1107-7-5"
+       style="fill:#1f7f6e;fill-opacity:0.997953;stroke-width:1.17157;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.992157;paint-order:stroke fill markers"
+       inkscape:transform-center-x="19.503587"
+       inkscape:transform-center-y="6.2744335"
+       d="M 8.4666666,0.26458333 A 8.2020835,8.2020835 0 0 0 0.26458339,8.4666666 8.2020835,8.2020835 0 0 0 8.4666666,16.66875 8.2020835,8.2020835 0 0 0 16.66875,8.4666666 8.2020835,8.2020835 0 0 0 8.4666666,0.26458333 Z m 0,1.58749997 A 6.6145835,6.6145835 0 0 1 15.08125,8.4666666 6.6145835,6.6145835 0 0 1 8.4666666,15.08125 6.6145835,6.6145835 0 0 1 1.8520833,8.4666666 6.6145835,6.6145835 0 0 1 8.4666666,1.8520833 Z" />
+  </g>
+</svg>

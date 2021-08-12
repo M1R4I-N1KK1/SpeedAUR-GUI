@@ -19,7 +19,7 @@ def proc_meta():
         return processor + 1
 
     else:
-        return int(metade_do_processador) + 1
+        return str(int(metade_do_processador) + 1)
 
 
 def type_processor():

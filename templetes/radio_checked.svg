@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="64"
+   height="64"
+   viewBox="0 0 16.933333 16.933334"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="radio_checked.svg"
+   inkscape:version="1.1 (c4e8f9ed74, 2021-05-24)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     width="793.70081px"
+     inkscape:snap-global="false"
+     inkscape:zoom="3.7843434"
+     inkscape:cx="24.839183"
+     inkscape:cy="43.600694"
+     inkscape:window-width="1366"
+     inkscape:window-height="695"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#999999;fill-opacity:0.991581;stroke-width:1.17157;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.992157;paint-order:stroke fill markers"
+       id="path1107-7"
+       cx="-11.202307"
+       cy="-20.653101"
+       r="8.2020836"
+       transform="scale(1,-1)" />
+    <path
+       id="path1107-7-5"
+       style="fill:#1f7f6e;fill-opacity:0.99795264;stroke-width:4.42798;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.992157;paint-order:stroke fill markers"
+       inkscape:transform-center-x="19.503587"
+       inkscape:transform-center-y="6.2744335"
+       d="M 32 1 A 31.000001 31.000001 0 0 0 1 32 A 31.000001 31.000001 0 0 0 32 63 A 31.000001 31.000001 0 0 0 63 32 A 31.000001 31.000001 0 0 0 32 1 z M 32 7 A 25.000001 25.000001 0 0 1 57 32 A 25.000001 25.000001 0 0 1 32 57 A 25.000001 25.000001 0 0 1 7 32 A 25.000001 25.000001 0 0 1 32 7 z "
+       transform="scale(0.26458333)" />
+    <circle
+       style="fill:#1f7f6e;fill-opacity:1;stroke-width:0.755845;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.992157;paint-order:stroke fill markers"
+       id="path1107-3-6"
+       cx="8.4666662"
+       cy="8.4666662"
+       r="5.2916665" />
+  </g>
+</svg>

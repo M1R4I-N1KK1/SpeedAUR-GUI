@@ -12,10 +12,6 @@
     border-radius: 5px;
 }
 
-#line_bar_divisor{
-    background: whitesmoke;
-}
-
 #btn_ok{
     background: #1f7f6e;
     color: whitesmoke;
@@ -86,6 +82,79 @@
 	}
 }
 
-.bold_font{
+label{
+	color: black;
     font-weight: bold;
+}
+
+entry, spinbutton{
+	border-radius: 25px;
+	border-width: 2px;
+}
+
+radio{
+	-gtk-icon-source: url("../templetes/radio_inative.svg")
+}
+
+radio:checked{
+	-gtk-icon-source: url("../templetes/radio_checked.svg")
+}
+
+button{
+	border-width: 0px;
+	padding: 8px 6px 8px 6px;
+}
+
+separator{
+    background: whitesmoke;
+	margin: 14px;
+	border-radius: 25px;
+}
+
+notebook > header{
+    background-color: #292f34;
+    border-color: white;
+    margin: 0px;
+    padding: 10px 0px 10px 2px;
+    font-weight: bold;
+}
+
+notebook > header > tabs > tab {
+    background: none;
+    border-color: #1089ec;
+    margin: 0px;
+	border-width: 0px;
+}
+
+notebook > header > tabs > tab:checked {
+    background: #f3f3f3;
+    border-color: #f3f3f3;
+	border-width: 0px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+	color:white;
+}
+
+box{
+	background-color: #f3f3f3;
+}
+
+#home{
+	background-image: url("../templetes/home.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25px;
+	padding: 8px 15px 8px 15px;
+}
+
+#about{
+	background-image: url("../templetes/about.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25px;
+	padding: 8px 15px 8px 15px;
+}
+
+#head_label{
+	color: whitesmoke;
 }

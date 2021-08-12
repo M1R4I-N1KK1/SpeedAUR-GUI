@@ -13,9 +13,9 @@
     <property name="can-focus">False</property>
     <property name="title" translatable="yes">Editor AUR: MAKEPKG</property>
     <property name="resizable">False</property>
-    <property name="default-width">450</property>
+    <property name="default-width">500</property>
     <property name="default-height">250</property>
-    <property name="icon">icon/window_icon.svg</property>
+    <property name="icon">../icon/editor_icon.png</property>
     <property name="gravity">center</property>
     <signal name="destroy" handler="main_window_destroy" swapped="no"/>
     <child>
@@ -24,15 +24,18 @@
         <property name="can-focus">False</property>
         <property name="orientation">vertical</property>
         <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
           <object class="GtkNotebook">
             <property name="visible">True</property>
             <property name="can-focus">True</property>
-            <property name="margin-left">5</property>
-            <property name="margin-right">5</property>
-            <property name="margin-start">5</property>
-            <property name="margin-end">5</property>
-            <property name="margin-top">5</property>
-            <property name="margin-bottom">5</property>
+            <property name="tab-pos">left</property>
+            <property name="show-border">False</property>
+            <property name="scrollable">True</property>
             <child>
               <object class="GtkBox">
                 <property name="visible">True</property>
@@ -49,6 +52,7 @@
                     <property name="margin-bottom">5</property>
                     <child>
                       <object class="GtkLabel">
+                        <property name="name">head_label</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="halign">start</property>
@@ -66,15 +70,8 @@
                     </child>
                     <child>
                       <object class="GtkSeparator">
-                        <property name="name">line_bar_divisor</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
-                        <property name="margin-left">9</property>
-                        <property name="margin-right">9</property>
-                        <property name="margin-start">9</property>
-                        <property name="margin-end">9</property>
-                        <property name="margin-top">15</property>
-                        <property name="margin-bottom">15</property>
                         <property name="hexpand">True</property>
                       </object>
                       <packing>
@@ -109,9 +106,6 @@
                         <property name="receives-default">False</property>
                         <property name="draw-indicator">True</property>
                         <property name="group">curl_manager</property>
-                        <style>
-                          <class name="bold_font"/>
-                        </style>
                       </object>
                       <packing>
                         <property name="left-attach">0</property>
@@ -128,9 +122,6 @@
                         <property name="margin-top">1</property>
                         <property name="draw-indicator">True</property>
                         <property name="group">curl_manager</property>
-                        <style>
-                          <class name="bold_font"/>
-                        </style>
                       </object>
                       <packing>
                         <property name="left-attach">0</property>
@@ -139,16 +130,13 @@
                     </child>
                     <child>
                       <object class="GtkRadioButton" id="curl_manager">
-                        <property name="label" translatable="yes">Curl - Padrão</property>
+                        <property name="label" translatable="yes">Curl - Default</property>
                         <property name="name">curl</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">False</property>
                         <property name="active">True</property>
                         <property name="draw-indicator">True</property>
-                        <style>
-                          <class name="bold_font"/>
-                        </style>
                       </object>
                       <packing>
                         <property name="left-attach">0</property>
@@ -173,6 +161,7 @@
                     <property name="margin-bottom">5</property>
                     <child>
                       <object class="GtkLabel" id="arquitetura_do_processador">
+                        <property name="name">head_label</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="margin-start">7</property>
@@ -190,15 +179,8 @@
                     </child>
                     <child>
                       <object class="GtkSeparator">
-                        <property name="name">line_bar_divisor</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
-                        <property name="margin-left">9</property>
-                        <property name="margin-right">9</property>
-                        <property name="margin-start">9</property>
-                        <property name="margin-end">9</property>
-                        <property name="margin-top">15</property>
-                        <property name="margin-bottom">15</property>
                         <property name="hexpand">True</property>
                       </object>
                       <packing>
@@ -247,9 +229,6 @@
                                 <property name="active">True</property>
                                 <property name="draw-indicator">True</property>
                                 <signal name="pressed" handler="off_arch_manual_button" swapped="no"/>
-                                <style>
-                                  <class name="bold_font"/>
-                                </style>
                               </object>
                               <packing>
                                 <property name="expand">True</property>
@@ -259,7 +238,7 @@
                             </child>
                             <child>
                               <object class="GtkRadioButton" id="arch_default_button">
-                                <property name="label" translatable="yes">Padrão</property>
+                                <property name="label" translatable="yes">Default</property>
                                 <property name="name">default</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">True</property>
@@ -270,9 +249,6 @@
                                 <property name="draw-indicator">True</property>
                                 <property name="group">arch_auto_button</property>
                                 <signal name="pressed" handler="off_arch_manual_button" swapped="no"/>
-                                <style>
-                                  <class name="bold_font"/>
-                                </style>
                               </object>
                               <packing>
                                 <property name="expand">True</property>
@@ -293,9 +269,6 @@
                                 <property name="draw-indicator">True</property>
                                 <property name="group">arch_auto_button</property>
                                 <signal name="pressed" handler="on_arch_manual_button_pressed" swapped="no"/>
-                                <style>
-                                  <class name="bold_font"/>
-                                </style>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -324,6 +297,7 @@
                         </child>
                         <child>
                           <object class="GtkEntry" id="entry_arquitetura_da_cpu">
+                            <property name="name">entry_arquitetura_da_cpu</property>
                             <property name="app-paintable">True</property>
                             <property name="can-focus">True</property>
                             <property name="no-show-all">True</property>
@@ -331,7 +305,6 @@
                             <property name="margin-start">5</property>
                             <property name="invisible-char">•</property>
                             <property name="xalign">0.5</property>
-                            <property name="shadow-type">none</property>
                             <property name="overwrite-mode">True</property>
                             <property name="placeholder-text" translatable="yes">exemplo: core2</property>
                           </object>
@@ -365,6 +338,7 @@
                     <property name="margin-bottom">5</property>
                     <child>
                       <object class="GtkLabel">
+                        <property name="name">head_label</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="margin-start">7</property>
@@ -381,15 +355,8 @@
                     </child>
                     <child>
                       <object class="GtkSeparator">
-                        <property name="name">line_bar_divisor</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
-                        <property name="margin-left">9</property>
-                        <property name="margin-right">9</property>
-                        <property name="margin-start">9</property>
-                        <property name="margin-end">9</property>
-                        <property name="margin-top">15</property>
-                        <property name="margin-bottom">15</property>
                         <property name="hexpand">True</property>
                       </object>
                       <packing>
@@ -427,14 +394,11 @@
                             <property name="can-focus">True</property>
                             <property name="receives-default">False</property>
                             <property name="margin-start">5</property>
-                            <property name="margin-top">5</property>
-                            <property name="margin-bottom">5</property>
+                            <property name="margin-top">6</property>
+                            <property name="margin-bottom">6</property>
                             <property name="active">True</property>
                             <property name="draw-indicator">True</property>
                             <signal name="pressed" handler="off_core_manual_button" swapped="no"/>
-                            <style>
-                              <class name="bold_font"/>
-                            </style>
                           </object>
                           <packing>
                             <property name="expand">True</property>
@@ -444,20 +408,17 @@
                         </child>
                         <child>
                           <object class="GtkRadioButton" id="core_default_button">
-                            <property name="label" translatable="yes">Padrão</property>
+                            <property name="label" translatable="yes">Default</property>
                             <property name="name">default</property>
                             <property name="visible">True</property>
                             <property name="can-focus">True</property>
                             <property name="receives-default">False</property>
                             <property name="margin-start">5</property>
-                            <property name="margin-top">5</property>
-                            <property name="margin-bottom">5</property>
+                            <property name="margin-top">6</property>
+                            <property name="margin-bottom">6</property>
                             <property name="draw-indicator">True</property>
                             <property name="group">core_auto_button</property>
                             <signal name="pressed" handler="off_core_manual_button" swapped="no"/>
-                            <style>
-                              <class name="bold_font"/>
-                            </style>
                           </object>
                           <packing>
                             <property name="expand">True</property>
@@ -473,14 +434,11 @@
                             <property name="can-focus">True</property>
                             <property name="receives-default">False</property>
                             <property name="margin-start">5</property>
-                            <property name="margin-top">5</property>
-                            <property name="margin-bottom">5</property>
+                            <property name="margin-top">6</property>
+                            <property name="margin-bottom">6</property>
                             <property name="draw-indicator">True</property>
                             <property name="group">core_auto_button</property>
                             <signal name="pressed" handler="on_core_manual_button_pressed" swapped="no"/>
-                            <style>
-                              <class name="bold_font"/>
-                            </style>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -503,6 +461,8 @@
                           <object class="GtkSpinButton" id="spin_core_list">
                             <property name="can-focus">True</property>
                             <property name="no-show-all">True</property>
+                            <property name="halign">start</property>
+                            <property name="hexpand">True</property>
                             <property name="adjustment">adjustment_list</property>
                             <property name="snap-to-ticks">True</property>
                             <property name="numeric">True</property>
@@ -579,13 +539,13 @@
             </child>
             <child type="tab">
               <object class="GtkLabel">
+                <property name="name">home</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="margin-start">5</property>
                 <property name="margin-end">5</property>
                 <property name="margin-top">5</property>
-                <property name="margin-bottom">5</property>
-                <property name="label" translatable="yes">Editor</property>
+                <property name="margin-bottom">6</property>
               </object>
               <packing>
                 <property name="tab-fill">False</property>
@@ -634,7 +594,7 @@
                     <property name="margin-bottom">5</property>
                     <property name="hexpand">True</property>
                     <property name="vexpand">True</property>
-                    <property name="label" translatable="yes">É um facilitador para editar as configuração  do MAKEPKG.</property>
+                    <property name="label" translatable="yes">Editor para as configurações  do MAKEPKG.</property>
                     <property name="justify">center</property>
                     <property name="ellipsize">middle</property>
                   </object>
@@ -719,13 +679,13 @@
             </child>
             <child type="tab">
               <object class="GtkLabel">
+                <property name="name">about</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="margin-start">5</property>
                 <property name="margin-end">5</property>
                 <property name="margin-top">5</property>
                 <property name="margin-bottom">5</property>
-                <property name="label" translatable="yes">Sobre</property>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -738,16 +698,16 @@
             <child type="tab">
               <placeholder/>
             </child>
+            <child type="action-end">
+              <placeholder/>
+            </child>
           </object>
           <packing>
             <property name="expand">False</property>
             <property name="fill">False</property>
             <property name="pack-type">end</property>
-            <property name="position">0</property>
+            <property name="position">2</property>
           </packing>
-        </child>
-        <child>
-          <placeholder/>
         </child>
       </object>
     </child>
@@ -766,11 +726,12 @@
       <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
-        <property name="margin-start">5</property>
-        <property name="margin-end">5</property>
-        <property name="margin-top">5</property>
-        <property name="margin-bottom">5</property>
+        <property name="margin-start">2</property>
+        <property name="margin-end">2</property>
+        <property name="margin-top">2</property>
+        <property name="margin-bottom">2</property>
         <property name="orientation">vertical</property>
+        <property name="homogeneous">True</property>
         <child>
           <object class="GtkLabel">
             <property name="visible">True</property>
