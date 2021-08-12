@@ -25,7 +25,7 @@ def restore():
 def apply_system():
     while True:
         if path.exists(f'{HOME}.makepkg.conf.bk'):
-            shutil.copy(resource_path('make_base'), f'{HOME}.makepkg.conf')
+            shutil.copy(resource_path('make_base.txt'), f'{HOME}.makepkg.conf')
             break
 
         else:
