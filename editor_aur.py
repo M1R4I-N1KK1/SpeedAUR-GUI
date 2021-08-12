@@ -28,7 +28,7 @@ class MainWindow(object):
         self.spin_core_list = builder.get_object("spin_core_list")
         self.adjustment_list = builder.get_object("adjustment_list")
 
-        self.mod = self.make = self.open_file("make_base,txt", modo="rt")
+        self.mod = self.make = self.open_file(real_path="make_base.txt", modo="rt")
         with open(self.resource_path("manager.json")) as download_manager:
             self.manager_dl = json.load(download_manager)
 
